@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+    <link rel="icon" type="image/png" href="/static/main/images/icons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/main/css/cabinet.css">
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="fb-profile-block">
+                    <div class="fb-profile-block-thumb cover-container"></div>
+                    <div class="profile-img">
+                        <a href="https://kzn.ru/meriya/ispolnitelnyy-komitet/">
+                            <img src="/static/main/assets/css/images/logo.png" alt="logo" title="">
+                        </a>
+                    </div>
+                    <div class="profile-name">
+                        <h2>Добро пожаловать, {{ user_first_name }} {{ user_last_name }}!</h2>
+                    </div>
+
+                    <div class="fb-profile-block-menu">
+                        <div class="block-menu">
+                            <ul>
+                                <li><a href="{% url 'cabinetworker' %}">Табель учёта рабочего времени</a></li>
+                                <li><a href="">Страница для бухгалтера</a></li>
+                                <li><a href="">Страница для руководителя</a></li>
+                                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!---->
+
+<div class="container">
+  <div class="card">
+    <img src="/static/main/assets/css/images/{{ user_first_name }}.jpg" alt="{{ user_first_name }}" style="width:60%">
+    <h1 id="fio">{{ user_first_name }} {{ user_last_name }}</h1>
+    <p class="title" id="wp">Должность сотрудника</p>
+    <p id="ws">Отдел сотрудника</p>
+  </div>
+
+  <div class="panel">
+    <div class="panel-body">
+      <ul>
+          <a class="a1">Информация о сотруднике</a>
+          <a class="a2" onclick="sendEmail()">Требуется обновить информацию</a>
+          <script>
+              function sendEmail() {
+                 var currentUser = document.querySelector("#fio").textContent;
+                 var wp = document.querySelector("#wp").textContent;
+                 var ws = document.querySelector("#ws").textContent;
+                 var subject = "Обновление информации о сотруднике _ " + currentUser;
+                 var body = "Добрый день!\n\n\Прошу обновить следующую информацию обо мне:\n\...\n\n\Спасибо!\n\n\С уважением, " + currentUser + "\n" + wp + "\n" + ws;
+                 body = encodeURIComponent(body);
+                 window.open("mailto:updatemyinfo@gmail.com?subject=" + subject + "&body=" + body, "_blank");
+              }
+          </script>
+      </ul>
+        <hr style="border-color: #aaddde; border-width: 2px; box-shadow: none;">
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in">
+          <table class="table">
+            <tbody>
+              <tr><td class="active">Дата трудоустройства:</td><td>dd/mm/yyyy</td></tr>
+              <tr><td class="active">Дата увольнения:</td><td>dd/mm/yyyy</td></tr>
+              <tr><td class="active">Место проживания:</td><td>Казань, Республика Татарстан</td></tr>
+              <tr><td class="active">Возраст / стаж:</td><td>xx / хх</td></tr>
+              <tr><td class="active">Руководитель:</td><td>Иван Иванов</td></tr>
+              <tr><td class="active">Телефон:</td><td>+ 7 (843) ххх-хх-хх, доб. хх-хх</td></tr>
+              <tr class="noborder"><td class="active">Электронная почта:</td><td>xxxx@gmail.com</td></tr>
+            </tbody>
+          </table>
+        </div>
+          <div class="twocont">
+          <div class="info-container">
+            <label>Информация об образовании:</label>
+            <a href="path/to/my_pdf_file.pdf" target="_blank" rel="noopener noreferrer"><img src="/static/main/assets/css/images/pdf.png" alt="First Image">Диплом об образовании с приложением</a>
+            <a href="path/to/my_pdf_file.pdf" target="_blank" rel="noopener noreferrer"><img src="/static/main/assets/css/images/pdf.png" alt="First Image">Сертификат о повышении квалификации</a>
+          </div>
+        <div class="resume-container">
+            <label>Резюме / CV:</label>
+                <div class="onerow">
+                <a href="path/to/my_word_file.docx" target="_blank" rel="noopener noreferrer"><img class="word" src="/static/main/assets/css/images/word.png" alt="First Image">Анкета сотрудника</a>
+                <a href="path/to/my_word_file.docx" target="_blank" rel="noopener noreferrer"><img class="word1" src="/static/main/assets/css/images/word.png" alt="First Image">Сопроводительное письмо</a>
+                </div>
+        </div>
+           </div>
+      </div>
+  </div>
+</div>
+</main>
+        <footer>
+            <a class="txt1" href="{% url 'about' %}">
+                 Информация о нас
+            </a>
+            <p class="txt2">
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            МастерХроно ©
+            </p>
+        </footer>
+
+</body>
+</html>

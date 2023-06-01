@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Страница бухгалтера</title>
+
+
+<link rel="icon" href="/static/main/images/favicon.png">
+
+
+    <style>
+
+/* Общие стили */
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin: 0 0 20px;
+}
+
+/* Стили для кнопок */
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #f1f1f1;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+/* Стили для таблицы */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+/* Скрытие кнопок при печати */
+
+@media print {
+  .button {
+    display: none;
+  }
+}
+
+
+        body {
+            background-color: rgb(230, 230, 230);
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: rgb(85, 188, 189);
+            color: #fff;
+            padding: 20px;
+        }
+
+        #footer {
+            background-color: rgb(110, 110, 110);
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: Georgia, serif;
+        }
+
+        #content {
+            margin: 20px;
+        }
+
+        .button {
+            width: 200px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #content {
+  height: calc(100vh - 200px); /* Высота контейнера с учетом верхней части страницы */
+  overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
+  display: flex; /* Используем flexbox для расположения элементов */
+  align-items: stretch; /* Растягиваем элементы по вертикали */
+}
+
+table {
+  flex: 1; /* Расширяем таблицу, чтобы занимала все доступное пространство */
+  table-layout: fixed; /* Фиксированная ширина столбцов */
+  border-collapse: collapse; /* Склеиваем границы ячеек таблицы */
+  margin: 10px; /* Добавляем отступы для таблицы */
+  float: left;
+}
+
+table td,
+table th {
+  padding: 10px; /* Отступы внутри ячеек таблицы */
+  text-align: center; /* Выравнивание текста по центру */
+  border: 1px solid black; /* Добавляем границы ячеек таблицы */
+}
+
+table th:first-child,
+table td:first-child {
+  text-align: left; /* Выравнивание текста в первом столбце по левому краю */
+}
+
+table input {
+  width: 100%; /* Растягиваем вводимые значения на всю ширину ячейки */
+}
+    </style>
+    <script>
+function calculateSum1() {
+    var hoursCells1 = document.querySelectorAll('.hourscell1');
+    var total1 = document.getElementById('total1');
+    var sum1 = 0;
+
+    for (var i = 0; i < hoursCells1.length; i++) {
+        var input1 = hoursCells1[i];
+        var value1 = parseFloat(input1.value);
+
+        if (!isNaN(value1)) {
+            sum1 += value1;
+        }
+    }
+
+    total1.textContent = sum1;
+}
+
+
+
+
+function calculateSum2() {
+    var hoursCells2 = document.querySelectorAll('.hourscell2');
+    var total2 = document.getElementById('total2');
+    var sum2 = 0;
+
+    for (var i = 0; i < hoursCells2.length; i++) {
+        var input2 = hoursCells2[i];
+        var value2 = parseFloat(input2.value);
+
+        if (!isNaN(value2)) {
+            sum2 += value2;
+        }
+    }
+
+    total2.textContent = sum2;
+}
+
+
+
+
+
+
+function calculateSum3() {
+    var hoursCells3 = document.querySelectorAll('.hourscell3');
+    var total3 = document.getElementById('total3');
+    var sum3 = 0;
+
+    for (var i = 0; i < hoursCells3.length; i++) {
+        var input3 = hoursCells3[i];
+        var value3 = parseFloat(input3.value);
+
+        if (!isNaN(value3)) {
+            sum3 += value3;
+        }
+    }
+
+    total3.textContent = sum3;
+}
+
+
+
+
+function calculateSum4() {
+    var hoursCells4 = document.querySelectorAll('.hourscell4');
+    var total4 = document.getElementById('total4');
+    var sum4 = 0;
+
+    for (var i = 0; i < hoursCells4.length; i++) {
+        var input4 = hoursCells4[i];
+        var value4 = parseFloat(input4.value);
+
+        if (!isNaN(value4)) {
+            sum4 += value4;
+        }
+    }
+
+    total4.textContent = sum4;
+}
+
+
+    </script>
+</head>
+<body>
+    <div id="header">
+        <h1>Таблица отработанных часов муниципальных служащих: бухгалтерский учет</h1>
+            <button class="button">Личный кабинет</button>
+        <div class="dropdown">
+            <button class="button">Служащие</button>
+            <div class="dropdown-content">
+                <a href="#">Все служащие</a>
+                <a href="#">Егор Романов</a>
+                <a href="#">Александр Климов</a>
+                <a href="#">Аяз Закиров</a>
+                <a href="#">Анастасия Кузяева</a>
+            </div>
+        </div>
+        <a class="button" href="https://www.consultant.ru/document/cons_doc_LAW_47274/">Инструкция</a>
+        <a class="button" href="https://www.consultant.ru/document/cons_doc_LAW_47274/855e821d62df012fd234cb5dfb506d15bf82960d/">Ведомость по зарплате</a>
+        <button class="button" onclick="window.print()">Печать</button>
+    </div>
+
+    <div id="content">
+        <!-- Основное содержимое страницы -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Служащий</th>
+                    <th>1 день</th>
+                    <th>2 день</th>
+                    <th>3 день</th>
+                    <th>4 день</th>
+                    <th>5 день</th>
+                    <th>6 день</th>
+                    <th>7 день</th>
+                    <th>8 день</th>
+                    <th>9 день</th>
+                    <th>10 день</th>
+                    <th>11 день</th>
+                    <th>12 день</th>
+                    <th>13 день</th>
+                    <th>14 день</th>
+                    <th>15 день</th>
+                    <th>Сумма часов</th>
+                </tr>
+              </thead>
+        <tbody>
+            <tr>
+                <td>Егор Романов</td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td> <input class="hourscell1" type="number" placeholder="0.0" oninput="calculateSum1()"> </td>
+                <td class="sum-cell"><label id="total1">0</label></td>
+            </tr>
+            <tr>
+                <td>Александр Климов</td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td> <input class="hourscell2" type="number" placeholder="0.0" oninput="calculateSum2()"> </td>
+                <td class="sum-cell"><label id="total2">0</label></td>
+            </tr>
+            <tr>
+                <td>Аяз Закиров</td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td> <input class="hourscell3" type="number" placeholder="0.0" oninput="calculateSum3()"> </td>
+                <td class="sum-cell"><label id="total3">0</label></td>
+            </tr>
+            <tr>
+                <td>Анастасия Кузяева</td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td> <input class="hourscell4" type="number" placeholder="0.0" oninput="calculateSum4()"> </td>
+                <td class="sum-cell"><label id="total4">0</label></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+    <div id="footer">
+        &copy; 2023 МастерХронос
+    </div>
+</body>
+</html>

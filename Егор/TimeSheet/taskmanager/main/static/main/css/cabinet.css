@@ -1,0 +1,327 @@
+.fb-profile-block {
+  margin: auto;
+  position: relative;
+  width: 100%;
+}
+.cover-container{
+    background: #003334;
+    background: radial-gradient(at bottom, #003334 12%, #009A9C)
+}
+.fb-profile-block-thumb{
+  display: block;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.profile-img a{
+    bottom: 15px;
+    box-shadow: none;
+	display: block;
+	left: 15px;
+	padding:1px;
+	position: absolute;
+	height: 160px;
+	width: 160px;
+	background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+	z-index:9;
+}
+.profile-img img {
+  background-color: #EFEEEB;
+  height:158px;
+  padding: 4px;
+  width:158px;
+}
+.profile-name {
+  bottom: 60px;
+  left: 200px;
+  position: absolute;
+}
+.profile-name h2 {
+  color: #EFEEEB;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  position: relative;
+  text-transform: uppercase;
+  font-family: Georgia;
+  padding-left: 15px;
+}
+.fb-profile-block-menu{
+  height: 44px;
+  position: relative;
+  width:100%;
+  overflow:hidden;
+ }
+.block-menu {
+  clear: right;
+  padding-left: 215px;
+  background-image: linear-gradient(90deg, #009A9C 0%, #003334 100%);
+  border: 1px solid #EFEEEB;
+}
+.block-menu ul{
+	margin: 0;
+	padding: 0;
+}
+.block-menu ul li{
+	display:inline-block;
+}
+.block-menu ul li a {
+  border-left: 1px solid #EFEEEB;
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+  height: 42px;
+  line-height: 3.0;
+  padding: 0 57px;
+  position: relative;
+  vertical-align: middle;
+  white-space: nowrap;
+  color:#EFEEEB;
+  font-family: Segoe UI;
+  text-decoration: none;
+}
+
+.block-menu ul li:first-child a {
+  border-left: none;
+  padding-left: 0px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.block-menu ul li a:hover {
+text-decoration: underline;
+}
+
+/**/
+
+body {
+  background-color: #EFEEEB;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.card, .panel {
+  box-shadow: 0px 0px 10px 2px rgba(0, 154, 156, 1);
+  margin: 20px;
+}
+
+.card {
+  max-width: 300px;
+}
+
+.panel {
+  flex-grow: 1;
+  border: none;
+  width: calc(100% - 340px); /* ширина экрана - ширина блока .card - суммарные отступы */
+  margin: 20px 20px 20px 0; /* верх, право, низ, лево */
+}
+
+.panel {
+  margin-top: 20px;
+}
+
+.panel .table {
+  margin-top: 20px;
+}
+
+.panel .table td:first-child {
+  font-weight: bold;
+  color: #3C3C3C;
+  font-family: Segoe UI;
+  font-size: 15px;
+}
+
+.table td {
+    color: #3C3C3C;
+    font-family: Segoe UI;
+    font-size: 15px;
+}
+
+.card img {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  box-shadow: 0px 0px 10px 2px rgba(60, 60, 60, 1);
+  background-color: #EFEEEB;
+  padding: 4px;
+}
+
+.card h1 {
+    color: #3C3C3C;
+    font-size: 21px;
+    line-height: 30px;
+    position: relative;
+    font-family: Georgia;
+    text-align: center;
+}
+
+.card p {
+  color: #6E6E6E;
+  font-size: 17px;
+  line-height: 12px;
+  font-family: Segoe UI;
+  text-align: center;
+}
+
+.panel ul {
+text-align: center;
+}
+
+.a1 {
+  font-family: Georgia;
+  font-weight: bold;
+  font-size: 16px;
+  color: #3C3C3C;
+}
+
+.a2 {
+  padding-left: 120px;
+  font-family: Georgia;
+  font-size: 16px;
+  color: #3C3C3C;
+}
+
+.a2:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #3C3C3C;
+}
+
+.table td {
+  border-bottom: 1px solid #009A9C;
+  padding: 6px;
+  padding-right: 35px;
+}
+
+.active {
+    padding-left: 20px;
+}
+
+.table tr:first-child td {
+    padding-top: 0px;
+}
+
+.table tr.noborder td {
+    border: none; /* убираем линию для последней строки */
+  }
+
+.tab-content {
+    display: flex;
+}
+
+.info-container {
+  flex: 1;
+  margin: 20px 20px 0 0;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.info-container a {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  color: #3C3C3C;
+  font-family: Segoe UI;
+  font-size: 15px;
+}
+
+.info-container img {
+    width: 10%;
+}
+
+.resume-container {
+  flex: 1;
+  margin: 30px 20px 0 0;
+}
+
+.resume-container a {
+  margin-top: 10px;
+  color: #3C3C3C;
+  font-family: Segoe UI;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.onerow {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.word {
+    width: 20%;
+}
+
+.word1 {
+    width: 20%;
+    height: 80%;
+}
+
+.twocont {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin-left: 60px;
+}
+
+.twocont a {
+    text-decoration: none;
+}
+
+.twocont a:hover {
+    background-color: #aaddde;
+    border-radius: 5px;
+}
+
+.twocont label {
+    display: flex;
+    font-weight: bold;
+    color: #3C3C3C;
+    font-family: Segoe UI;
+    font-size: 15px;
+    clear: both;
+    justify-content: space-around;
+}
+
+/**/
+
+main {
+    min-height: 100vh;
+}
+
+footer {
+    display: flex;
+    padding: 2px;
+    background-image: linear-gradient(230deg, #009A9C 0%, #003334 100%); /*корпоративный цвет*/
+    height: 30px;
+    align-items: center;
+}
+
+.txt2 {
+    position: relative;
+    left: 20px;
+    color: #EFEEEB; /* корпоративный цвет */
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: Georgia; /* корпоративный шрифт */
+}
+
+.txt1 {
+    position: absolute;
+    right: 20px;
+    font-family: Georgia; /* корпоративный шрифт */
+    font-size: 13px;
+    color: #EFEEEB; /* корпоративный цвет */
+    line-height: 1.5;
+    text-decoration: none;
+}

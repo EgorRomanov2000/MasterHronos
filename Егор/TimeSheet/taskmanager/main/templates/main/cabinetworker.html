@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Рабочее время</title>
+    <link rel="icon" type="image/png" href="/static/main/images/icons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/main/css/cabinetworker.css">
+    <script src="/static/main/js/cabinetworker.js"></script>
+    <script src="/static/main/js/jquery.js"></script>
+    <style type="text/css">
+        #niz1 {width:100px}
+        #niz2 {width:100px}
+        #niz3 {width:100px}
+        #niz4 {width:100px}
+        #niz5 {width:100px}
+        #niz6 {width:100px}
+        #niz7 {width:100px}
+        #niz8 {width:100px}
+        #niz9 {width:100px}
+        #niz10 {width:100px}
+    </style>
+    <script>
+        $(document).ready ( function(){
+            var width = $("#verh1").width();
+            $("#niz1").width(width);
+            var widt = $("#chislo1").width();
+            $("#niz2").width(widt);
+            $("#niz3").width(widt);
+            $("#niz4").width(widt);
+            $("#niz5").width(widt);
+            $("#niz6").width(widt);
+            $("#niz7").width(widt);
+            $("#niz8").width(widt);
+            $("#niz9").width(widt);
+            $("#niz10").width(widt);
+        });
+    </script>
+</head>
+
+<body>
+    <main>
+    <div class="toptab">
+        <table class="table_col">
+            <tr>
+                <input type="button" value="Назад" onclick="perehodvp()" disabled/>
+                <input type="month" value="2023-05"/>
+                <input type="button" value="Вперёд" onclick="perehodvp()" disabled/>
+                <input type="button" value="Добавить поле" onclick="addRows()" class="btn2"/>
+                <input type="button" value="Удалить поле" onclick="deleteRows()" class="btn3"/>
+                <input type="submit" value="Сохранить" onclick="confirm()" class="btn1"/>
+                <a class="txt3" href="path/to/my_pdf_file.pdf" target="_blank" rel="noopener noreferrer">Инструкция</a>
+                <a class="txt4" href="{% url 'cabinet' %}">Личный кабинет</a>
+            </tr>
+        </table>
+    </div>
+    <table class="table_col" id="emptbl">
+        <colgroup>
+            <col style="background:#aaddde;">
+        </colgroup>
+        <tr>
+            <th id="verh1" style="text-align: left; padding-left: 20px;">Деятельность</th>
+            <th id="chislo1">1</th>
+            <th id="chislo2">2</th>
+            <th id="chislo3">3</th>
+            <th id="chislo4">4</th>
+            <th id="chislo5">5</th>
+            <th id="chislo6">6</th>
+            <th id="chislo7">7</th>
+            <th id="chislo8">8</th>
+            <th id="chislo9">9</th>
+            <th id="chislo10">10</th>
+            <th id="chislo11">11</th>
+            <th id="chislo12">12</th>
+            <th id="chislo13">13</th>
+            <th id="chislo14">14</th>
+            <th id="chislo15">15</th>
+        </tr>
+        <tr>
+            <td id="col0">
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat1(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+            <td id="col1">
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td id="col2">
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td id="col3">
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td id="col4">
+                <input class="stolb4"  type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td id="col5">
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td id="col6">
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td id="col7">
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td id="col8">
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td id="col9">
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td id="col10">
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td id="col11">
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td id="col12">
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td id="col13">
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td id="col14">
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td id="col15">
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat2(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat3(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat4(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat5(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat6(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat7(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat8(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+           <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat9(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            </td>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input list="jobs" name="jobs" type="text" placeholder="Задача" onchange="deyat10(this)">
+                <datalist id="jobs">
+                    {% for index in jobs %}
+                    <option>{{ index.job }}</option>
+                    {% endfor %}
+                </datalist>
+            <td>
+                <input class="stolb1" type="number" placeholder="0.0" oninput="updateTotal1()">
+            </td>
+            <td>
+                <input class="stolb2" type="number" placeholder="0.0" oninput="updateTotal2()">
+            </td>
+            <td>
+                <input class="stolb3" type="number" placeholder="0.0" oninput="updateTotal3()">
+            </td>
+            <td>
+                <input class="stolb4" type="number" placeholder="0.0" oninput="updateTotal4()">
+            </td>
+            <td>
+                <input class="stolb5" type="number" placeholder="0.0" oninput="updateTotal5()">
+            </td>
+            <td>
+                <input class="stolb6" type="number" placeholder="0.0" oninput="updateTotal6()">
+            </td>
+            <td>
+                <input class="stolb7" type="number" placeholder="0.0" oninput="updateTotal7()">
+            </td>
+            <td>
+                <input class="stolb8" type="number" placeholder="0.0" oninput="updateTotal8()">
+            </td>
+            <td>
+                <input class="stolb9" type="number" placeholder="0.0" oninput="updateTotal9()">
+            </td>
+            <td>
+                <input class="stolb10" type="number" placeholder="0.0" oninput="updateTotal10()">
+            </td>
+            <td>
+                <input class="stolb11" type="number" placeholder="0.0" oninput="updateTotal11()">
+            </td>
+            <td>
+                <input class="stolb12" type="number" placeholder="0.0" oninput="updateTotal12()">
+            </td>
+            <td>
+                <input class="stolb13" type="number" placeholder="0.0" oninput="updateTotal13()">
+            </td>
+            <td>
+                <input class="stolb14" type="number" placeholder="0.0" oninput="updateTotal14()">
+            </td>
+            <td>
+                <input class="stolb15" type="number" placeholder="0.0" oninput="updateTotal15()">
+            </td>
+        </tr>
+    </table>
+    <table class="table_col">
+        <colgroup>
+            <col style="background:#aaddde;">
+        </colgroup>
+        <tr>
+            <th style="text-align: left; padding-left: 20px;">Сумма часов</th>
+            <td>
+                <label id="total1">0</label>
+            </td>
+            <td>
+                <label id="total2">0</label>
+            </td>
+            <td>
+                <label id="total3">0</label>
+            </td>
+            <td>
+                <label id="total4">0</label>
+            </td>
+            <td>
+                <label id="total5">0</label>
+            </td>
+            <td>
+                <label id="total6">0</label>
+            </td>
+            <td>
+                <label id="total7">0</label>
+            </td>
+            <td>
+                <label id="total8">0</label>
+            </td>
+            <td>
+                <label id="total9">0</label>
+            </td>
+            <td>
+                <label id="total10">0</label>
+            </td>
+            <td>
+                <label id="total11">0</label>
+            </td>
+            <td>
+                <label id="total12">0</label>
+            </td>
+            <td>
+                <label id="total13">0</label>
+            </td>
+            <td>
+                <label id="total14">0</label>
+            </td>
+            <td>
+                <label id="total15">0</label>
+            </td>
+        </tr>
+         <tr>
+            <th id="niz1" style="text-align: left; padding-left: 20px;">Подтверждение</th>
+            <th id="niz2">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check1" onclick="fun1()"/></label>
+            </th>
+            <th id="niz3">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check2" onclick="fun2()"/></label>
+            </th>
+            <th id="niz4">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check3" onclick="fun3()"/></label>
+            </th>
+            <th id="niz5">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check4" onclick="fun4()"/></label>
+            </th>
+            <th id="niz6">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check5" onclick="fun5()"/></label>
+            </th>
+            <th id="niz7">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check6" onclick="fun6()"/></label>
+            </th>
+            <th id="niz8">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check7" onclick="fun7()"/></label>
+            </th>
+            <th id="niz9">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check8" onclick="fun8()"/></label>
+            </th>
+            <th id="niz10">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check9" onclick="fun9()"/></label>
+            </th>
+            <th id="niz11">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check10" onclick="fun10()"/></label>
+            </th>
+            <th id="niz12">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check11" onclick="fun11()"/></label>
+            </th>
+            <th id="niz13">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check12" onclick="fun12()"/></label>
+            </th>
+            <th id="niz14">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check13" onclick="fun13()"/></label>
+            </th>
+            <th id="niz15">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check14" onclick="fun14()"/></label>
+            </th>
+            <th id="niz16">
+                <label style="display:block; width:100%; height:100%;"><input type="checkbox" id="check15" onclick="fun15()"/></label>
+            </th>
+        <tr/>
+    </table>
+    </main>
+
+        <footer>
+            <a class="txt1" href="{% url 'about' %}">
+                 Информация о нас
+            </a>
+            <p class="txt2">
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            МастерХроно ©
+            </p>
+        </footer>
+
+    <script>
+    var inputField = document.querySelectorAll('input[type="number"]');
+        for (let i = 0; i < inputField.length; i++) {
+            inputField[i].addEventListener('input', function() {
+                if (this.value < 0) {
+                    this.value = 0;
+                } else if (this.value > 24) {
+                    this.value = 24;
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>

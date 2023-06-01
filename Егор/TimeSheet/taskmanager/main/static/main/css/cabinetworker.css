@@ -1,0 +1,232 @@
+body {
+    margin: 20px;
+	padding: 0;
+}
+
+main {
+    min-height: 100vh;
+}
+
+input[type=number]{
+   width:100%;
+   margin: auto;
+   padding-top: 5 px;
+   padding-bottom: 5 px;
+   box-sizing: border-box;
+}
+
+input[type=button]{
+	width: 10%;
+	font-size: 13px;
+	color: #0F0F0F; /*корпоративный цвет*/
+	background: #aaddde; /*корпоративный цвет*/
+	height: 15%;
+	padding: 5px;
+	border: 1px solid #55bcbd; /*корпоративный цвет*/
+	margin: 12px 5px 12px 5px;
+	font-family: Georgia; /*корпоративный шрифт*/
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+input[type=button]:hover {
+	border: 1px solid #232323; /*корпоративный цвет*/
+}
+
+input[type=submit]{
+	width: 10%;
+	font-size: 13px;
+	color: #0F0F0F; /*корпоративный цвет*/
+	background: #55bcbd; /*корпоративный цвет*/
+	height: 15%;
+	padding: 5px;
+	border: 1px solid #55bcbd; /*корпоративный цвет*/
+	margin: 12px 5px 12px 5px;
+	font-family: Georgia; /*корпоративный шрифт*/
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+input[type=submit]:hover {
+	border: 1px solid #0F0F0F; /*корпоративный цвет*/
+}
+
+input[type=number]{
+    color: #0F0F0F; /*Цвет текста в таблице, корпоративный цвет*/
+	font-family: Segoe UI; /*Семейство шрифтов, корпоративный шрифт*/
+	font-size: 13px;
+}
+
+input[type=text]{
+    color: #0F0F0F; /*Цвет текста в таблице, корпоративный цвет*/
+	font-family: Segoe UI; /*Семейство шрифтов, корпоративный шрифт*/
+	font-size: 13px;
+}
+
+input[type=month]{
+    color: #0F0F0F; /*Цвет текста в таблице, корпоративный цвет*/
+	font-family: Segoe UI; /*Семейство шрифтов, корпоративный шрифт*/
+	font-size: 13px;
+}
+
+input[type=checkbox]::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 1px solid #232323; /* корпоративный цвет*/
+    border-radius: 2px;
+}
+input[type=checkbox]:checked::before {
+    background-color: #55bcbd; /* корпоративный цвет*/
+}
+
+input[type=checkbox]:disabled::before {
+  background-color: #C8C8C8; /* корпоративный цвет*/
+}
+
+.btn1 {
+    position: relative;
+    left: 90px;
+}
+
+.btn2 {
+    position: relative;
+    left: 45px;
+}
+
+.btn3 {
+    position: relative;
+    left: 45px;
+}
+
+table {
+    width: 100%; /*Ширина таблицы*/
+    margin-bottom: 18px; /*Отступ снизу от таблицы*/
+    padding: 0; /*Отступы внутри таблицы*/
+    font-size: 13px; /*Размер шрифта*/
+    border: 1px solid #232323; /*Граница таблицы, корпоративный цвет*/
+    border-spacing: 0; /*Отступы между границами ячеек*/
+    border-collapse: separate; /*Границы ячеек не склеиваются*/
+	-webkit-border-radius: 3px; /*Радиус скругления углов у таблицы Safari, Chrome*/
+    -moz-border-radius: 3px; /*Радиус скругления углов у таблицы Mozilla*/
+    border-radius: 3px; /*Радиус скругления углов у таблицы*/
+    color: #0F0F0F; /*Цвет текста в таблице, корпоративный цвет*/
+	font-family: Segoe UI; /*Семейство шрифтов, корпоративный шрифт*/
+}
+
+table th, table td {
+    padding: 5px 5px 5px; /*Отступы внутри ячеек*/
+    line-height: 19px; /*Межстрочный интервал*/
+    text-align: center; /*Выравнивание текста по левому краю*/
+}
+
+table th {
+    padding-top: 9px; /*Отступы внутри ячеек*/
+    font-weight: bold; /*Установка жирного начертания шрифта*/
+    vertical-align: middle; /*Выравнивание по вертикали. Текст находится по середине*/
+    color: #0F0F0F; /*Черный цвет в ячейках заголовков таблицы, корпоративный цвет*/
+}
+
+table td {
+    vertical-align: top; /*Выравнивание содержимого ячейки по верхнему краю*/
+    border-top: 1px solid #3C3C3C; /*Верхняя граница ячейки, корпоративный цвет*/
+}
+
+table th+th,table td+td,table th+td {
+    border-left: 1px solid #3C3C3C; /*Стиль для левой границы между двумя ячейками, корпоративный цвет*/
+}
+
+table thead tr:first-child th:first-child, /*Первая строка первая ячейка в заголовке таблицы*/
+table tbody tr:first-child td:first-child /*Первая строка первая ячейка в теле таблицы*/{
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+    border-radius: 5px 0 0 0;
+}
+
+table thead tr:first-child th:last-child, /*Первая строка последняя ячейка в заголовке таблицы*/
+table tbody tr:first-child td:last-child /*Первая строка последняя ячейка в теле таблицы*/ {
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+    border-radius: 0 5px 0 0;
+}
+
+table tbody tr:last-child td:first-child  /*Последняя строка первая ячейка в теле таблицы*/ {
+    -webkit-border-radius: 0 0 0 5px;
+    -moz-border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 5px;
+}
+
+table tbody tr:last-child td:last-child  /*Последняя строка последняя ячейка в теле таблицы*/{
+    -webkit-border-radius: 0 0 5px 0;
+    -moz-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+}
+
+table tr:hover {
+    background-color: #EFEEEB; /*Цвет строки при наведении курсора мыши, корпоративный*/
+}
+
+
+footer {
+   display: flex;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   align-items: center;
+   height: 32px;
+   background-image: linear-gradient(195deg, #55bcbd 20%, #aaddde 100%); /* корпоративный цвет */
+   border-radius: 3px;
+}
+
+.txt2 {
+   position: relative;
+   left: 20px;
+   font-family: Georgia; /* корпоративный шрифт */
+   color: #0F0F0F; /* корпоративный цвет */
+   font-size: 12px;
+   line-height: 1.5;
+}
+
+.txt1 {
+   position: absolute;
+   right: 20px;
+   font-family: Georgia; /* корпоративный шрифт */
+   font-size: 12px;
+   color: #0F0F0F; /* корпоративный цвет */
+   line-height: 1.5;
+   text-decoration: none;
+}
+
+.txt3 {
+    display: inline-block;
+    padding: 6px 23px; /* Добавляем отступ вокруг надписей */
+    margin-right: 10px; /* Добавляем небольшой отступ между надписями*/
+    margin-left: 123px;
+    color: #0F0F0F; /* Задаем цвет текста, корпоративный цвет*/
+    text-decoration: none; /* Убираем подчеркивание из-за того, что данные поля не являются ссылками */
+    font-family: Georgia; /*корпоративный шрифт*/
+    font-size: 13px;
+}
+
+.txt4 {
+    display: inline-block;
+    padding: 6px 23px; /* Добавляем отступ вокруг надписей */
+    color: #0F0F0F; /* Задаем цвет текста, корпоративный цвет */
+    text-decoration: none; /* Убираем подчеркивание из-за того, что данные поля не являются ссылками */
+    font-weight: bold;
+    font-family: Georgia; /*корпоративный шрифт*/
+    font-size: 13px;
+}
+
+.txt3:hover, .txt4:hover {
+  background-color: #aaddde; /* Задаем цвет фона при наведении, корпоративный цвет */
+  border-radius: 3px;
+}
+
+.toptab {
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
